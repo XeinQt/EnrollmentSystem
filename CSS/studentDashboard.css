@@ -1,0 +1,175 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9fb;
+  color: #444;
+}
+
+.student-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.top-bar {
+  background-color: #3498db;
+  padding: 1rem;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.top-bar span {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.top-bar .settings {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  background-color: #0056b3;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  border: none;
+}
+
+.top-bar .settings:hover {
+  background-color: #003f8a;
+}
+
+.content {
+  padding: 2rem;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.details-card, .subjects-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.details-card h3, .subjects-card h3 {
+  margin-top: 0;
+  color: #007BFF;
+  font-size: 1.5rem;
+  border-bottom: 2px solid #f0f0f5;
+  padding-bottom: 0.5rem;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.details div {
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  border-bottom: 1px solid #e0e0e5;
+}
+
+.details div strong {
+  color: #555;
+}
+
+.subjects {
+  margin-top: 1rem;
+}
+
+.subjects table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.subjects th, .subjects td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e5;
+}
+
+.subjects th {
+  background-color: #3498db;
+  color: #333;
+  font-weight: bold;
+}
+
+.subjects tbody tr:hover {
+  background-color: #f9f9ff;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-top: 60px;
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 500px;
+}
+
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button[type="submit"],
+.logout-btn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #16a085;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover,
+.logout-btn:hover {
+  background-color: #16a085;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 97%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}

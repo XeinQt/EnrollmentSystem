@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - Settings</title>
+  <link rel="stylesheet" href="CSS/settings.css">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+</head>
+<body>
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h2>Admin</h2>
+    </div>
+    <ul class="sidebar-menu">
+      <li><a href="admin.html">Dashboard</a></li>
+      <li><a href="manageStudent.html">Manage Student</a></li>
+      <li><a href="course.html">Manage Courses</a></li>
+      <li><a href="instructor.html">Manage Instructor</a></li>
+      <li><a href="subject.html">Manage Subject</a></li>
+      <li><a href="enrollStudent.html">Enroll Student</a></li>
+      <li><a href="report.html">Report</a></li>
+      <li><a href="setting.html" class="active">Settings</a></li>
+      <li><a href="javascript:void(0);" onclick="logout()">Logout</a></li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <div class="container">
+      <h2>Account Settings</h2>
+      <div class="settings-section">
+        <h3>Change Email</h3>
+        <form id="change-email-form" class="settings-form">
+          <div>
+            <label for="current-email">Current Email:</label>
+            <input type="email" id="current-email" required>
+          </div>
+          <div>
+            <label for="new-email">New Email:</label>
+            <input type="email" id="new-email" required>
+          </div>
+          <div>
+            <label for="confirm-email">Confirm New Email:</label>
+            <input type="email" id="confirm-email" required>
+          </div>
+          <input type="submit" value="Save Changes">
+        </form>
+      </div>
+      <div class="settings-section">
+        <h3>Change Password</h3>
+        <form id="change-password-form" class="settings-form">
+          <div>
+            <label for="current-password">Current Password:</label>
+            <input type="password" id="current-password" required>
+          </div>
+          <div>
+            <label for="new-password">New Password:</label>
+            <input type="password" id="new-password" required>
+          </div>
+          <div>
+            <label for="confirm-password">Confirm New Password:</label>
+            <input type="password" id="confirm-password" required>
+          </div>
+          <input type="submit" value="Save Changes">
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="JS/Setting/setting.js"></script>
+  <script src="JS/logout.js"></script>
+  <script>
+    window.onload = function() {
+        if (!sessionStorage.getItem("loggedInAs") || sessionStorage.getItem("loggedInAs") !== "admin") {
+            window.location.href = "login.html";
+        }
+    };
+  </script>
+</body>
+</html>

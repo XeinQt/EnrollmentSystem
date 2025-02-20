@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel Dashboard</title>
+  <link rel="stylesheet" href="CSS/manageStudent.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+</head>
+<body>
+  <div class="admin-container">
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h2>Admin</h2>
+      </div>
+      <ul class="sidebar-menu">
+        <ul class="sidebar-menu">
+          <li><a href="admin.html">Dashboard</a></li>
+          <li><a href="manageStudent.html" class="active">Manage Student</a></li>
+          <li><a href="course.html">Manage Courses</a></li>
+          <li><a href="instructor.html">Manage Instructor</a></li>
+          <li><a href="subject.html">Manage Subject</a></li>
+          <li><a href="enrollStudent.html">Enroll Student</a></li>
+          <li><a href="report.html">Report</a></li>
+          <li><a href="setting.html">Settings</a></li>
+          <li><a href="javascript:void(0);" onclick="logout()">Logout</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+      <div class="container">
+        <h2>Manage Students</h2>
+        <div class="form-container">
+          <h3>Add/Update Student</h3>
+          <form id="studentForm">
+            <input type="text" id="firstName" placeholder="First Name" required>
+            <input type="text" id="lastName" placeholder="Last Name" required>
+            <input type="text" id="middleName" placeholder="Middle Name">
+            <input type="number" id="age" placeholder="Age" required>
+            <select id="sex" required>
+              <option value="">Select Sex</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+            <textarea id="address" placeholder="Address" required></textarea>
+            <input type="text" id="contactNumber" placeholder="Contact Number" required>
+            <input type="text" id="email" placeholder="Email" required>
+            <button type="submit" id="submitBtn">Add Student</button>
+          </form>
+        </div>
+        <div class="search-div">
+          <input type="text" id="search" placeholder="Seach Student" required>
+          <i class="fa-solid fa-magnifying-glass" id="search-btn"></i>
+        </div>
+        <div class="table-container">
+          <table id="studentTable">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Middle Name</th>
+                <th>Age</th>
+                <th>Sex</th>
+                <th>Contact Number</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="studentTableBody">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="JS/ManageStudent/crudStudent.js"></script>
+  <script src="JS/logout.js"></script>
+  <script>
+    window.onload = function() {
+      if (!sessionStorage.getItem("loggedInAs") || sessionStorage.getItem("loggedInAs") !== "admin") {
+        window.location.href = "login.html";
+      }
+    };
+  </script>
+</body>
+</html>

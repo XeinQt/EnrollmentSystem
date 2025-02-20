@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" href="CSS/studentDashboard.css">
+</head>
+<body>
+  <div class="student-container">
+    <div class="top-bar">
+      <span id="welcome-text">Welcome, [Student Name]</span>
+      <button id="settings-btn" class="settings">Settings</button>
+    </div>
+    <div class="content">
+      <div class="details-card">
+        <h3>Student Details</h3>
+        <div id="student-details" class="details"></div>
+      </div>
+      <div class="subjects-card">
+        <h3>Subjects</h3>
+        <div class="subjects">
+          <table>
+            <thead>
+              <tr>
+                <th>Subject Code</th>
+                <th>Description</th>
+                <th>Units</th>
+                <th>Time In</th>
+                <th>Time Out</th>
+                <th>Room</th>
+                <th>Instructor</th>
+              </tr>
+            </thead>
+            <tbody id="subjects-list"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="settings-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Settings</h2>
+      <form id="settings-form">
+        <div class="form-group">
+          <label for="email">New Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="confirm-email">Confirm New Email:</label>
+          <input type="email" id="confirm-email" name="confirm-email" required />
+        </div>
+        <div class="form-group">
+          <label for="old-password">Old Password:</label>
+          <input type="password" id="old-password" name="old-password" required />
+        </div>
+        <div class="form-group">
+          <label for="password">New Password:</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <div class="form-group">
+          <label for="confirm-password">Confirm New Password:</label>
+          <input type="password" id="confirm-password" name="confirm-password" required />
+        </div>
+        <div class="form-group">
+          <button type="submit">Save Changes</button>
+        </div>
+      </form>
+      <button id="logoutButton" class="logout-btn">Log Out</button>
+    </div>
+  </div>
+  <script src="JS/STUDENT DASHBOARD/studentDashboard.js"></script>
+</body>
+</html>
