@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel Dashboard</title>
+    <link rel="stylesheet" href="assets/CSS/subject.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+  </head>
+  <body>
+    <div class="admin-container">
+      <div class="sidebar">
+        <div class="sidebar-header">
+          <h2>Admin</h2>
+        </div>
+        <ul class="sidebar-menu">
+          <li><a href="admin.html">Dashboard</a></li>
+          <li><a href="manageStudent.html">Manage Student</a></li>
+          <li><a href="course.html">Manage Courses</a></li>
+          <li><a href="instructor.html">Manage Instructor</a></li>
+          <li><a href="subject.html" class="active">Manage Subject</a></li>
+          <li><a href="enrollStudent.html">Enroll Student</a></li>
+          <li><a href="report.html">Report</a></li>
+          <li><a href="setting.html">Settings</a></li>
+          <li><a href="javascript:void(0);" onclick="logout()">Logout</a></li>
+        </ul>
+      </div>
+      <div class="main-content">
+        <div class="container">
+          <h2>Manage Subjects</h2>
+          <div class="form-container">
+            <form id="addSubjectForm">
+              <h3>Select Course</h3>
+              <select id="course-select" required>
+                <option value="">Select Course</option>
+              </select>
+              <h3>Add Subject</h3>
+              <input
+                type="text"
+                id="subject-code"
+                placeholder="Subject Code"
+                required
+              />
+              <input
+                type="text"
+                id="subject-description"
+                placeholder="Subject Description"
+                required
+              />
+              <select id="units-select" required>
+                <option value="">Select Units</option>
+                <option value="2">2 Units</option>
+                <option value="3">3 Units</option>
+              </select>
+              <select id="instructor-select" required>
+                <option value="">Select Instructor</option>
+              </select>
+              <h3 style="margin-bottom: 10px">Time and Room</h3>
+              <label for="time-start">Start Time</label>
+              <input type="time" id="time-start" required />
+              <label for="time-end">End Time</label>
+              <input type="time" id="time-end" required />
+              <label for="room">Room</label>
+              <input type="text" id="room" placeholder="Room" required />
+              <button type="submit">Add Subject</button>
+            </form>
+          </div>
+          <div id="subjects-container"></div>
+        </div>
+      </div>
+    </div>
+    <script src="assets/JS/Subject/dropDown.js"></script>
+    <script src="assets/JS/logout.js"></script>
+    <script>
+      window.onload = function () {
+        if (
+          !sessionStorage.getItem("loggedInAs") ||
+          sessionStorage.getItem("loggedInAs") !== "admin"
+        ) {
+          window.location.href = "login.html";
+        }
+      };
+    </script>
+  </body>
+</html>

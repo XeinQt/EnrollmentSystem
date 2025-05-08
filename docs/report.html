@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Enrollment Panel</title>
+    <link rel="stylesheet" href="assets/CSS/report.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="assets/CSS/yawa/yawa.css" />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+  </head>
+  <body>
+    <div class="admin-container">
+      <div class="sidebar">
+        <div class="sidebar-header">
+          <h2>Admin</h2>
+        </div>
+        <ul class="sidebar-menu">
+          <li><a href="admin.html">Dashboard</a></li>
+          <li><a href="manageStudent.html">Manage Student</a></li>
+          <li><a href="course.html">Manage Courses</a></li>
+          <li><a href="instructor.html">Manage Instructor</a></li>
+          <li><a href="subject.html">Manage Subject</a></li>
+          <li><a href="enrollStudent.html">Enroll Student</a></li>
+          <li><a href="report.html" class="active">Report</a></li>
+          <li><a href="setting.html">Settings</a></li>
+          <li><a href="javascript:void(0);" onclick="logout()">Logout</a></li>
+        </ul>
+      </div>
+      <div class="main-content">
+        <div class="container">
+          <h2>Student Enrollment Management</h2>
+          <div class="search-container">
+            <h3>Search Student and View Enrolled Subjects</h3>
+            <div class="search-box">
+              <input
+                type="text"
+                id="search-student"
+                placeholder="Enter Student Name"
+              />
+              <button onclick="searchStudent()">Search</button>
+            </div>
+            <table id="filtered-students-table" class="hidden">
+              <thead>
+                <tr>
+                  <th>ID Number</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Middle Name</th>
+                  <th>Course Code</th>
+                  <th>Year</th>
+                  <th>Section</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="dropdown-container">
+            <h3>View Enrolled Students by Course</h3>
+            <select id="course-dropdown">
+              <option value="">Select Course</option>
+            </select>
+            <div id="enrolled-students">
+              <table id="students-table" class="hidden">
+                <thead>
+                  <tr>
+                    <th>Student ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+              <div id="no-students-message" class="hidden">
+                No students available for this course.
+              </div>
+            </div>
+          </div>
+          <div id="student-modal" class="modal">
+            <div class="modal-content">
+              <span id="close-modal" class="close">&times;</span>
+              <h3>Student Details</h3>
+              <table id="student-details-table">
+                <tr>
+                  <td><strong>ID:</strong></td>
+                  <td><span id="student-id"></span></td>
+                </tr>
+                <tr>
+                  <td><strong>First Name:</strong></td>
+                  <td><span id="student-firstname"></span></td>
+                </tr>
+                <tr>
+                  <td><strong>Last Name:</strong></td>
+                  <td><span id="student-lastname"></span></td>
+                </tr>
+                <tr>
+                  <td><strong>Middle Name:</strong></td>
+                  <td><span id="student-middlename"></span></td>
+                </tr>
+                <tr>
+                  <td><strong>Age:</strong></td>
+                  <td><span id="student-age"></span></td>
+                </tr>
+                <tr>
+                  <td><strong>Address:</strong></td>
+                  <td><span id="student-address"></span></td>
+                </tr>
+                <tr>
+                  <td><strong>Contact Number:</strong></td>
+                  <td><span id="student-contact"></span></td>
+                </tr>
+                <tr>
+                  <td><strong>Email:</strong></td>
+                  <td><span id="student-email"></span></td>
+                </tr>
+              </table>
+              <h4>Enrolled Subjects:</h4>
+              <table id="student-subjects-table" class="hidden">
+                <thead>
+                  <tr>
+                    <th>Subject Code</th>
+                    <th>Description</th>
+                    <th>Units</th>
+                    <th>Instructor</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="assets/JS/Report/report.js"></script>
+    <script src="assets/JS/logout.js"></script>
+    <script>
+      window.onload = function () {
+        if (
+          !sessionStorage.getItem("loggedInAs") ||
+          sessionStorage.getItem("loggedInAs") !== "admin"
+        ) {
+          window.location.href = "login.html";
+        }
+      };
+    </script>
+  </body>
+</html>
